@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <p>Job Table</p>
+{% endblock %}
+
+{% block body %}
+<p>
+    This is the job table, it contains attributes: Title, Salary and Description.  It relates to Employer.Name and City.ID
+</p>
+<table border="1">
+    <tr>
+        <th colspan="3">Jobs</th>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <th>Salary</th>
+        <th>Description</th>
+    </tr>
+        <tr>
+            <td>PositionA</td>
+            <td>103424</td>
+            <td>DescA</td>
+        </tr>
+        <tr>
+            <td>PositionB</td>
+            <td>78436</td>
+            <td>DescB</td>
+        </tr>
+        <tr>
+            <td>PositionC</td>
+            <td>83452</td>
+            <td>DescC</td>
+        </tr>
+        <tr>
+            <td>PositionD</td>
+            <td>60325</td>
+            <td>DescD</td>
+        </tr>
+        <tr>
+            <td>{{jt}}</td>
+            <td>{{js}}</td>
+            <td>{{jd}}</td>
+        </tr>
+</table>
+{% endblock %}

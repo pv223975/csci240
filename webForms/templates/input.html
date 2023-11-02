@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <p>Job Input</p>
+{% endblock %}
+
+{% block body %}
+    <p>This is the Input Page</p>
+    <form method="get" action="table">
+        Job Title:<input type="text" name="jtitle"></br>
+        Job Salary:<input type="text" name="jsalary"></br>
+        Job Description:<input type="text" name="jdesc"></br>
+        <input type="submit">
+    </form>
+
+{% endblock %}
