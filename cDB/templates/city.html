@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    City Table
+{% endblock %}
+
+{% block body %}
+<p>
+    This is the city table, it contains attributes: City, State and Cost of Living
+</p>
+<table border="1">
+    <tr>
+      <th>ID</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Cost of Living</th>
+    </tr>
+    {% for row in cInfo %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <td>
+        {{row[1]}}
+      </td>
+      <td>
+        {{row[2]}}
+      </td>
+      <td>
+        {{row[3]}}
+      </td>
+      <td>
+        <a href="?delete=true&id={{row[0]}}">Delete</a><br />
+        <a href="/updateCity?id={{row[0]}}">Update</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<h2>Enter a new value here</h2>
+<form action="">
+  City: <input type="text" name="city"><br />
+  State: <input type="text" name="state"><br />
+  Cost of Living: <input type="text" name="col"><br />
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}
