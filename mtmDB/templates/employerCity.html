@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{eName}} Locations
+{% endblock %}
+
+{% block body %}
+<p>
+    Location information for {{eName}}:
+</p>
+mySQL query: join city to empLocation to employer table</br> </br>
+
+"select employer.eName, city.cName, city.sName from empLocation </br>
+                    right join city on city.cityID = empLocation.cityID </br>
+                    right join employer on employer.eName = empLocation.eName </br>
+                    where employer.eName = %s" ({{eName}})</br></br>
+ 
+
+<table border="1">
+    <tr>
+      <th>Employer Name</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+    {% for row in el %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <td>
+        {{row[1]}}
+      </td>
+      <td>
+        {{row[2]}}
+      </td>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  
+  <p>
+    <a href="/employer">Return to Employer Page</a>
+  </p>
+
+{% endblock %}

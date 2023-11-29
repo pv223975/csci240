@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			{% block title %}
+			{% endblock %}
+		</title>
+	</head>
+	
+	<body>
+		<p>
+			Navigate to:
+		</p>
+		<a href="/city">City Page</a><br />
+		<a href="/employer">Employer Page</a><br />
+		<a href="/empLoc">Employer/Location Bridge Page</a>
+
+        {% block body %}
+		{% endblock %}
+	</body>
+</html>

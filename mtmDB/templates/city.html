@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    City Page
+{% endblock %}
+
+{% block body %}
+<p>
+    This is the city table, it contains attributes: City, State and Cost of Living
+</p>
+<p>
+    This can be used to Create, Read, Update and Delete the City Table
+</p>
+
+<table border="1">
+    <tr>
+      <th>City ID</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Cost of Living</th>
+    </tr>
+    {% for row in cInfo %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <td>
+        {{row[1]}}
+      </td>
+      <td>
+        {{row[2]}}
+      </td>
+      <td>
+        {{row[3]}}
+      </td>
+      <td>
+        <a href="?delete=true&id={{row[0]}}">Delete</a><br />
+        <a href="/uCity?id={{row[0]}}">Update</a><br />
+        <a href="/cityEmployer?id={{row[0]}}&cname={{row[1]}}&sname={{row[2]}}">Employers in State</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<h2>Enter a new City here</h2>
+<form action="">
+  City: <input type="text" name="city"><br />
+  State: <input type="text" name="state"><br />
+  Cost of Living (X.XX): <input type="text" name="col"><br />
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}

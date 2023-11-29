@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Updating Employer {{eName}}
+{% endblock %}
+
+{% block body %}
+
+<h2>Enter updated values here for {{eName}}:</h2>
+<form action="">
+  <input type="hidden" name="eName" value="{{eName}}">
+  Employer Rating (0.0-5.0): <input type="text" placeholder="{{oR}}" name="nRate"><br />
+  Employer Size: <input type="text" placeholder="{{oS}}" name="nSize"><br />
+  <input type="submit" value="Submit">
+</form>
+<a href="/employer">Return to Employer page</a>
+
+{% endblock %}

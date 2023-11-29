@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Employer/Location bridge table
+{% endblock %}
+
+{% block body %}
+<p>
+    This is the empLocation bridge table (Employer and City Tables), it contains attributes: Employer, City Name and State Name
+</p>
+    mySQL statement: joins empLocation and City for human-readable, since using CityID</br>
+    "select empLocation.eName, empLocation.cityID, city.cName, city.sName from empLocation </br>
+    left join city on empLocation.cityID = city.cityID"
+<p>
+    This can be used to Create, Read and Delete the empLocation Table
+</p>
+<table border="1">
+    <tr>
+      <th>Employer Name</th>
+      <th>City Name</th>
+      <th>State Name</th>
+    </tr>
+    {% for row in el %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <!-- row[1] is cityID -->
+      <td>
+        {{row[2]}}
+      </td>
+      <td>
+        {{row[3]}}
+      </td>
+      <td>
+        <a href="?delete=true&ename={{row[0]}}&dcID={{row[1]}}">Delete</a><br />
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <h2>Associate Employer with City here: </h2>
+<form action="">
+
+  <!-- choose existing employer -->
+  Employer: <select id="eMenu" name="ename">
+    {% for en in ei %}
+    <option value="{{en[0]}}">{{en[0]}}</option>
+    {% endfor %}
+  </select>
+
+  <!-- choose existing City, State -->
+  City: <select id="cMenu" name="cID">
+    {% for l in li %}
+    <option value="{{l[0]}}">{{l[1]}}, {{l[2]}}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="Submit">
+
+  <!-- Employer: <input type="text" name="ename"><br /> -->
+  <!-- City ID: <input type="text" name="cID"><br /> -->
+</form>
+
+{% endblock %}

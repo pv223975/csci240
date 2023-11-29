@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Employer Page
+{% endblock %}
+
+{% block body %}
+<p>
+    This is the employer table, it contains attributes: Employer, Employer Rating and Employer Size
+</p>
+<p>
+    This can be used to Create, Read, Update and Delete the Employer Table
+</p>
+<table border="1">
+    <tr>
+      <th>Employer Name</th>
+      <th>Employer Rating</th>
+      <th>Employer Size</th>
+    </tr>
+    {% for row in eInfo %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <td>
+        {{row[1]}}
+      </td>
+      <td>
+        {{row[2]}}
+      </td>
+      <td>
+        <a href="?delete=true&eName={{row[0]}}">Delete</a><br />
+        <a href="/uEmp?eName={{row[0]}}">Update</a><br />
+        <a href="/employerCity?eName={{row[0]}}">Locations</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<h2>Enter a new Employer here</h2>
+<form action="">
+  Employer Name: <input type="text" name="ename"><br />
+  Employer Rating (0.0-5.0): <input type="text" name="erate"><br />
+  Employer Size: <input type="text" name="esize"><br />
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

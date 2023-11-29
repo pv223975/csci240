@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Updating City {{oc}}
+{% endblock %}
+
+{% block body %}
+
+<h2>Enter updated value here for {{oc}}</h2>
+<form action="">
+  <input type="hidden" name="id" value="{{id}}">
+  City: <input type="text" placeholder="{{oc}}" name="city"><br />
+  State: <input type="text" placeholder="{{os}}" name="state"><br />
+  Cost of Living (X.XX): <input type="text" placeholder="{{ocol}}" name="col"><br />
+  <input type="submit" value="Submit">
+</form>
+<a href="/city">Return to City page</a>
+
+{% endblock %}

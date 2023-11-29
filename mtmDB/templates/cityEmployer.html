@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{sname}} Employers
+{% endblock %}
+
+{% block body %}
+<p>
+    Employer information in {{sname}}.
+</p>
+mySQL Query: join city to empLocation to employer table </br> </br>
+"select city.cName, city.sName, employer.eName, employer.eRating, employer.eSize from empLocation </br>
+right join city on city.cityID = empLocation.cityID</br>
+right join employer on employer.eName = empLocation.eName</br>
+where city.sName = %s " ({{sname}})</br></br>
+
+<table border="1">
+    <tr>
+      <th>City</th>
+      <th>State</th>
+      <th>Employer Name</th>
+      <th>Employer Rating</th>
+      <th>Employer Size</th>
+    </tr>
+    {% for row in el %}
+    <tr>
+      <td>
+        {{row[0]}}
+      </td>
+      <td>
+        {{row[1]}}
+      </td>
+      <td>
+        {{row[2]}}
+      </td>
+      <td>
+        {{row[3]}}
+      </td>
+      <td>
+        {{row[4]}}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p>
+    <a href="/city">Return to City Page</a>
+  </p>
+{% endblock %}
