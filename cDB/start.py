@@ -6,7 +6,7 @@ import mysql.connector, os, json
 app = Flask(__name__)
 
 #load credentials from secrets.json file
-with open('/home/pheng/gitproj/csci240/cDB/secrets.json', 'r') as sf:
+with open('secrets.json', 'r') as sf:
         creds = json.load(sf)['creds']
 
 
